@@ -34,6 +34,24 @@
             overflow-y: scroll;
         }
 
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
         section {
             height: 100vh;
             width: 100vw;
@@ -127,7 +145,7 @@
         #paco { background-color: rgb(22, 27, 18); }
         #paco .smash-stripe { background-color: var(--green); }
         #paco .stripe-text { color: rgba(37, 70, 15, 0.699); }
-        
+
         #usagi .info-box p {
             color: white;
             font-weight: 550;
