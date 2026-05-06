@@ -84,23 +84,49 @@
             white-space: nowrap;
         }
 
-        /* Personnage */
-        .character-img {
+        /* Grand Stand (Arrière-plan, ex: November Rain) */
+        .stand-img {
             position: absolute;
-            bottom: -50px;
-            right: 10%;
-            height: 90%;
+            bottom: 0px;
+            right: 5%;
+            height: 95%;
             z-index: 2;
             transform: translateX(150%);
-            transition: transform 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.8s 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+            opacity: 0.6;
+        }
+
+        /* Personnage (Premier plan) */
+        .character-img {
+            position: absolute;
+            bottom: -20px;
+            right: 20%; /* Décalé légèrement pour laisser la place aux petits stands */
+            height: 70%;
+            z-index: 3;
+            transform: translateX(150%);
+            transition: transform 0.8s 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));
+        }
+
+        /* Petits Stands (À côté du manieur, ex: Smooth Operators, Matte Kudasai) */
+        .small-stand-img {
+            position: absolute;
+            bottom: 15%;
+            right: 8%; /* Placé à droite du manieur */
+            height: 35%; /* Taille considérablement réduite */
+            z-index: 4; /* Au-dessus pour être bien visible */
+            transform: translateX(150%);
+            transition: transform 0.8s 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: drop-shadow(0 0 15px rgba(0,0,0,0.8));
+            opacity: 1; /* Pas de transparence pour les petits stands */
         }
 
         /* Infos Personnage */
         .info-box {
             position: absolute;
             left: 10%;
-            z-index: 3;
+            z-index: 4;
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.6s 0.5s ease;
@@ -117,40 +143,26 @@
 
         /* Animation Trigger */
         section.active .smash-stripe { transform: rotate(-10deg) translateX(-10%); }
+        section.active .stand-img { transform: translateX(0); }
+        section.active .small-stand-img { transform: translateX(0); }
         section.active .character-img { transform: translateX(0); }
         section.active .info-box { opacity: 1; transform: translateY(0); }
 
         /* Couleurs Spécifiques */
-        #jodio .info-box p {
-            color: white;
-            font-weight: 550;
-            text-shadow: 2px 2px 0px var(--black);
-        }
+        #jodio .info-box p { color: white; font-weight: 550; text-shadow: 2px 2px 0px var(--black); }
         #jodio { background-color: var(--dark-blue); }
         #jodio .smash-stripe { background-color: var(--navy); }
 
-        #dragona .info-box p {
-            color: white;
-            font-weight: 550;
-            text-shadow: 2px 2px 0px var(--black);
-        }
+        #dragona .info-box p { color: white; font-weight: 550; text-shadow: 2px 2px 0px var(--black); }
         #dragona { background-color: var(--black); }
         #dragona .smash-stripe { background-color: var(--purple); }
 
-        #paco .info-box p {
-            color: white;
-            font-weight: 550;
-            text-shadow: 2px 2px 0px var(--black);
-        }
+        #paco .info-box p { color: white; font-weight: 550; text-shadow: 2px 2px 0px var(--black); }
         #paco { background-color: rgb(22, 27, 18); }
         #paco .smash-stripe { background-color: var(--green); }
         #paco .stripe-text { color: rgba(37, 70, 15, 0.699); }
 
-        #usagi .info-box p {
-            color: white;
-            font-weight: 550;
-            text-shadow: 2px 2px 0px var(--black);
-        }
+        #usagi .info-box p { color: white; font-weight: 550; text-shadow: 2px 2px 0px var(--black); }
         #usagi { background-color: var(--dark-blue); }
         #usagi .smash-stripe { background-color: var(--navy); }
 
@@ -191,14 +203,8 @@
             z-index: 100;
         }
 
-        footer strong {
-            color: #fff;
-        }
-
-        footer a {
-            color: var(--green);
-            text-decoration: underline;
-        }
+        footer strong { color: #fff; }
+        footer a { color: var(--green); text-decoration: underline; }
     </style>
 </head>
 <body>
@@ -206,7 +212,7 @@
     <header>
         <img src="Icon.webp" alt="Jodio Icon - TheJOJOLands">
         <span>TheJOJOLands • FAN SITE</span>
-        <p>View the Official Site of Shueisha : <a href="https://ultra.shueisha.co.jp" target="_blank" rel="noopener noreferrer" style = "color: var(--green);">Here</a></p>
+        <p>View the Official Site of Shueisha : <a href="https://ultra.shueisha.co.jp" target="_blank" rel="noopener noreferrer" style="color: var(--green);">Here</a></p>
     </header>
 
     <section id="jodio">
@@ -217,9 +223,10 @@
             <h2>JODIO</h2>
             <p>November Rain's User. His goal is to become rich by mastering the mechanisms of the world.</p>
         </div>
+        <img src="November Rain.png" class="stand-img" alt="November Rain">
         <img src="Jodio1.png" class="character-img" alt="Jodio Joestar">
     </section>
-
+    
     <section id="dragona">
         <div class="smash-stripe">
             <div class="stripe-text">DRAGONA JOESTAR • DRAGONA JOESTAR</div>
@@ -228,6 +235,7 @@
             <h2>DRAGONA</h2>
             <p>Elegant and calm. With Smooth Operators, he can move anything, even license plates or facial features.</p>
         </div>
+        <img src="smooth operators.png" class="small-stand-img" alt="Smooth Operators">
         <img src="Dragona1.webp" class="character-img" alt="Dragona Joestar">
     </section>
 
@@ -250,6 +258,7 @@
             <h2>USAGI</h2>
             <p>The Matte Kudasai ! A Stand capable of becoming any object, provided that someone else desires it.</p>
         </div>
+        <img src="The Matte Kudasai.png" class="small-stand-img" alt="The Matte Kudasai">
         <img src="Usagi.png" class="character-img" alt="Usagi Aloh'oe">
     </section>
 
@@ -258,7 +267,6 @@
     </footer>
 
     <script>
-        // Script pour activer l'animation au scroll
         const sections = document.querySelectorAll('section');
         const observerOptions = {
             threshold: 0.6
