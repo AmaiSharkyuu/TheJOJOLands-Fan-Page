@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta property="og:title" content="TheJOJOLands | Fan Site">
+    <meta property="og:description" content="Discover the JOJOLands characters  | JoJo's Bizarre Adventure Part 9. | FAN SITE">
+    <meta property="og:image" content="icon.webp">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheJOJOLands | Fan Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #000080;
+            --dark-blue: #000033;
+            --purple: #800080;
+            --green: #00FA00;
+            --black: #050505;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--black);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            /* Scroll Snapping */
+            scroll-snap-type: y mandatory;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        section {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            scroll-snap-align: start;
+        }
+
+        /* Effet de Bande "Smash Bros" */
+        .smash-stripe {
+            position: absolute;
+            width: 150%;
+            height: 300px;
+            transform: rotate(-10deg) translateX(-150%);
+            z-index: 1;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            align-items: center;
+            padding-left: 20%;
+        }
+
+        .stripe-text {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 8rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.2);
+            white-space: nowrap;
+        }
+
+        /* Personnage */
+        .character-img {
+            position: absolute;
+            bottom: -50px;
+            right: 10%;
+            height: 90%;
+            z-index: 2;
+            transform: translateX(150%);
+            transition: transform 0.8s 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: drop-shadow(0 0 20px rgba(0,0,0,0.5));
+        }
+
+        /* Infos Personnage */
+        .info-box {
+            position: absolute;
+            left: 10%;
+            z-index: 3;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s 0.5s ease;
+            max-width: 400px;
+        }
+
+        .info-box h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 5rem;
+            line-height: 1;
+            margin-bottom: 20px;
+            text-shadow: 5px 5px 0px var(--black);
+        }
+
+        /* Animation Trigger */
+        section.active .smash-stripe { transform: rotate(-10deg) translateX(-10%); }
+        section.active .character-img { transform: translateX(0); }
+        section.active .info-box { opacity: 1; transform: translateY(0); }
+
+        /* Couleurs Spécifiques */
+        #jodio { background-color: var(--dark-blue); }
+        #jodio .smash-stripe { background-color: var(--navy); }
+        
+        #dragona { background-color: var(--black); }
+        #dragona .smash-stripe { background-color: var(--purple); }
+
+        #paco { background-color: var(--black); }
+        #paco .smash-stripe { background-color: var(--green); }
+        #paco .stripe-text { color: rgba(37, 70, 15, 0.699); }
+
+        #usagi { background-color: var(--dark-blue); }
+        #usagi .smash-stripe { background-color: var(--navy); }
+
+        /* Header / Logo */
+        header {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        header img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--green);
+        }
+
+        header span {
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            text-align: center;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            z-index: 100;
+        }
+
+        footer strong {
+            color: #fff;
+        }
+
+        footer a {
+            color: var(--green);
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="icon.webp" alt="Jodio Icon">
+        <span>TheJOJOLands • FAN SITE</span>
+        <p>View the Official Site of Shueisha : <a href="https://ultra.shueisha.co.jp" target="_blank" rel="noopener noreferrer" style = "color: var(--green);">Here</a></p>
+    </header>
+
+    <section id="jodio">
+        <div class="smash-stripe">
+            <div class="stripe-text">JODIO JOESTAR • JODIO JOESTAR</div>
+        </div>
+        <div class="info-box">
+            <h2>JODIO</h2>
+            <p>November Rain's User. His goal is to become rich by mastering the mechanisms of the world.</p>
+        </div>
+        <img src="Jodio1.png" class="character-img" alt="Jodio Joestar">
+    </section>
+
+    <section id="dragona">
+        <div class="smash-stripe">
+            <div class="stripe-text">DRAGONA JOESTAR • DRAGONA JOESTAR</div>
+        </div>
+        <div class="info-box">
+            <h2>DRAGONA</h2>
+            <p>Elegant and calm. With Smooth Operators, he can move anything, even license plates or facial features.</p>
+        </div>
+        <img src="Dragona1.webp" class="character-img" alt="Dragona">
+    </section>
+
+    <section id="paco">
+        <div class="smash-stripe">
+            <div class="stripe-text">PACO LABURANTES • PACO LABURANTES</div>
+        </div>
+        <div class="info-box">
+            <h2>PACO</h2>
+            <p>His physical strength and his Stand "The Hustle" make him a formidable ally to seize all opportunities.</p>
+        </div>
+        <img src="paco.png" class="character-img" alt="Paco">
+    </section>
+
+    <section id="usagi">
+        <div class="smash-stripe">
+            <div class="stripe-text">USAGI ALOHA'OE • USAGI ALOHA'OE</div>
+        </div>
+        <div class="info-box">
+            <h2>USAGI</h2>
+            <p>The Matte Kudasai ! A Stand capable of becoming any object, provided that someone else desires it.</p>
+        </div>
+        <img src="Usagi.png" class="character-img" alt="Usagi">
+    </section>
+
+    <footer>
+        <strong>This is not an official site.</strong> For official information, please visit the official site : <a href="https://ultra.shueisha.co.jp" target="_blank" rel="noopener noreferrer">https://ultra.shueisha.co.jp</a>
+    </footer>
+
+    <script>
+        // Script pour activer l'animation au scroll
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+            threshold: 0.6
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
