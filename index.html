@@ -184,6 +184,62 @@
             text-shadow: 5px 5px 0px var(--black);
         }
 
+
+
+        /* --- Style pour l'inversion (Reverse) --- */
+
+        section.reversed .smash-stripe {
+            transform: rotate(10deg) translateX(150%);
+            padding-left: 0;
+            padding-right: 20%;
+            justify-content: flex-end;
+        }
+
+        section.active.reversed .smash-stripe {
+            transform: rotate(10deg) translateX(10%);
+        }
+
+        section.reversed .character-img,
+        section.reversed .stand-img,
+        section.reversed .small-stand-img {
+            right: auto;
+            left: 5%; /* On les place à gauche */
+            transform: translateX(-150%);
+        }
+
+        section.reversed .character-img { left: 15%; }
+
+        section.active.reversed .character-img,
+        section.active.reversed .stand-img,
+        section.active.reversed .small-stand-img {
+            transform: translateX(0);
+        }
+
+        section.reversed .character-img,
+        section.reversed .stand-img,
+        section.reversed .small-stand-img {
+            right: auto;
+            left: 5%;
+            transform: translateX(-150%) scaleX(-1);
+        }
+
+        section.active.reversed .character-img,
+        section.active.reversed .stand-img,
+        section.active.reversed .small-stand-img {
+            transform: translateX(0) scaleX(-1);
+        }
+
+        section.reversed .character-img {
+            left: 15%;
+        }
+        section.reversed .info-box {
+            left: auto;
+            right: 10%;
+            text-align: right;
+        }
+
+
+
         /* Animation Trigger */
         section.active .smash-stripe { transform: rotate(-10deg) translateX(-10%); }
         section.active .stand-img { transform: translateX(0); }
@@ -208,6 +264,24 @@
         #usagi .info-box p { color: white; font-weight: 550; text-shadow: 2px 2px 0px var(--black); }
         #usagi { background-color: var(--dark-blue); }
         #usagi .smash-stripe { background-color: var(--navy); }
+
+        #charming .info-box p {
+            color: white;
+            font-weight: 550;
+            text-shadow: 2px 2px 0px var(--black);
+        }
+
+        #charming {
+            background-color: #5A4630; /* sable sombre équilibré */
+        }
+
+        #charming .smash-stripe {
+            background-color: #8A6A3A; /* ocre / sable lumineux */
+        }
+
+        #charming .stripe-text {
+            color: rgba(120, 90, 40, 0.6); /* effet poussiéreux */
+        }
 
         /* Header / Logo */
         header {
@@ -303,6 +377,17 @@
         </div>
         <img src="The Matte Kudasai.png" class="small-stand-img" alt="The Matte Kudasai">
         <img src="Usagi.png" class="character-img" alt="Usagi Aloh'oe">
+    </section>
+
+    <section id="charming">
+        <div class="smash-stripe">
+            <div class="stripe-text">CHARMING MAN • CHARMING MAN</div>
+        </div>
+        <div class="info-box">
+            <h2>CHARMING MAN</h2>
+            <p>His Stand "Big Mouth Strikes Again" allows him to disguise himself as another person. or blend into the environment.</p>
+        </div>
+        <img src="Charming Man.png" class="character-img" alt="Charming Man">
     </section>
 
     <footer>
