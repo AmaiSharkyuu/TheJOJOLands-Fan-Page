@@ -209,26 +209,6 @@
 
         section.reversed .character-img { left: 15%; }
 
-        section.active.reversed .character-img,
-        section.active.reversed .stand-img,
-        section.active.reversed .small-stand-img {
-            transform: translateX(0);
-        }
-
-        section.reversed .character-img,
-        section.reversed .stand-img,
-        section.reversed .small-stand-img {
-            right: auto;
-            left: 5%;
-            transform: translateX(-150%) scaleX(-1);
-        }
-
-        section.active.reversed .character-img,
-        section.active.reversed .stand-img,
-        section.active.reversed .small-stand-img {
-            transform: translateX(0) scaleX(-1);
-        }
-
         section.reversed .character-img {
             left: 15%;
         }
@@ -307,6 +287,70 @@
             text-transform: uppercase;
         }
 
+
+        /* Section Finale "To Be Continued" */
+        #tbc-section {
+            background-color: #38444b;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .group-shot-container {
+            position: relative;
+            width: 100%;
+            height: 80vh; /* Prend la majorité de l'écran */
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .group-member {
+            position: absolute;
+            bottom: -20px;
+            height: 90%; /* Ajuste la taille pour qu'ils rentrent tous */
+            filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+            transition: transform 1.5s ease-out, opacity 1.5s ease-out;
+            opacity: 0;
+        }
+
+        .m-jodio    { z-index: 5; left: 10%; transform: translateY(100px); }
+        .m-dragona  { z-index: 4; left: 25%; transform: translateY(100px); }
+        .m-paco     { z-index: 3; left: 40%; transform: translateY(100px); }
+        .m-usagi    { z-index: 2; left: 55%; transform: translateY(100px); }
+        .m-charming { z-index: 1; left: 70%; transform: translateY(100px); }
+
+        section#tbc-section.active .group-member {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        section#tbc-section.active .m-jodio    { transition-delay: 0.1s; }
+        section#tbc-section.active .m-dragona  { transition-delay: 0.2s; }
+        section#tbc-section.active .m-paco     { transition-delay: 0.3s; }
+        section#tbc-section.active .m-usagi    { transition-delay: 0.4s; }
+        section#tbc-section.active .m-charming { transition-delay: 0.5s; }
+
+        .tbc-arrow-final {
+            position: absolute;
+            bottom: 120px;
+            left: 50px;
+            z-index: 100;
+            width: 600px;
+            opacity: 0;
+            transform: translateX(120vw);
+        }
+
+        .page-loaded section#tbc-section.active .tbc-arrow-final {
+            opacity: 1;
+            transform: translateX(0);
+            transition: transform 3s cubic-bezier(0.215, 0.61, 0.355, 1), opacity 1.5s ease-out;
+            transition-delay: 1s;
+        }
+
+        /* Truc en bas de l'écran */
         footer {
             position: fixed;
             left: 0;
@@ -390,11 +434,33 @@
         <img src="Charming Man.png" class="character-img" alt="Charming Man">
     </section>
 
+
+
+
+
+
+
+<section id="tbc-section">
+    <div class="group-shot-container">
+        <img src="Jodio2.png" class="group-member m-jodio" alt="Jodio">
+        <img src="Dragona1.webp" class="group-member m-dragona" alt="Dragona">
+        <img src="Paco.png" class="group-member m-paco" alt="Paco">
+        <img src="Usagi.png" class="group-member m-usagi" alt="Usagi">
+        <img src="Charming Man.png" class="group-member m-charming" alt="Charming Man">
+
+        <img src="ToBeContinued.png" class="tbc-arrow-final" alt="To Be Continued">
+    </div>
+</section>
+
     <footer>
         <strong>This is not an official site.</strong> For official information, please visit the official site : <a href="https://ultra.shueisha.co.jp" target="_blank" rel="noopener noreferrer">https://ultra.shueisha.co.jp</a>
     </footer>
 
     <script>
+        window.addEventListener('load', function() {
+            document.body.classList.add('page-loaded');
+        });
+
         const sections = document.querySelectorAll('section');
         const observerOptions = {
             threshold: 0.6
