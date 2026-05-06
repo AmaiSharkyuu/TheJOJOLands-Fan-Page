@@ -9,7 +9,37 @@
     <title>TheJOJOLands | Fan Site</title>
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Poppins:wght@400;900&display=swap" rel="stylesheet">
     <style>
-        
+        @media (max-width: 768px) {
+            .info-box {
+                left: 50% !important; 
+                transform: translateX(-50%) !important;
+                top: 15%; 
+                width: 90%;
+                max-width: none;
+                text-align: center;
+                z-index: 10000;
+            }
+
+            .info-box h2 {
+                font-size: 3rem;
+                margin-bottom: 10px;
+            }
+
+            .info-box p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+            .character-img {
+                height: 50%;
+                right: 50%;
+                transform: translateX(50%) translateY(0);
+                bottom: 5%;
+            }
+            .stand-img, .small-stand-img {
+                height: 30%;
+                opacity: 0.4;
+            }
+        }
         :root {
             --navy: #000080;
             --dark-blue: #000033;
