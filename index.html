@@ -310,7 +310,7 @@
         .group-member {
             position: absolute;
             bottom: -20px;
-            height: 90%; /* Ajuste la taille pour qu'ils rentrent tous */
+            height: 90%;
             filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
             transition: transform 1.5s ease-out, opacity 1.5s ease-out;
             opacity: 0;
@@ -350,6 +350,27 @@
             transition-delay: 1s;
         }
 
+        @media (max-width: 768px) {
+            .group-shot-container {
+                height: 60vh;
+            }
+
+            .group-member {
+                height: 70%;
+            }
+
+            .m-jodio    { left: 0%;   z-index: 5; }
+            .m-dragona  { left: 15%;  z-index: 4; }
+            .m-paco     { left: 30%;  z-index: 3; }
+            .m-usagi    { left: 45%;  z-index: 2; }
+            .m-charming { left: 60%;  z-index: 1; }
+
+            .tbc-arrow-final {
+                width: 80%;
+                bottom: 50px;
+                left: 10%;
+            }
+        }
         /* Truc en bas de l'écran */
         footer {
             position: fixed;
